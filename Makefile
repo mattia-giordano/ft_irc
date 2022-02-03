@@ -16,37 +16,37 @@ LEAKS_COLOR	=		$(YELLOW)
 
 #---------------------SRCS---------------------#
 
-OBJS_DIR	=		objs
-
 OBJS_DEBUG_DIR	=	objs_debug
+
+SRC_DIR		= 		src
+
+OBJS_DIR	=		${SRC_DIR}/objs
 
 HPPS		=		Channel.hpp        CommandHandler.hpp Server.hpp         User.hpp
 
 SRCS		= 		Channel.cpp        CommandHandler.cpp Server.cpp         User.cpp           main.cpp
-
-EXTRA_CLEAN	=		# extra file do u want delete
-				
+			
 #---------------------COMPILER---------------------#
 
 # chose a NAME for your program
 
 NAME		=		irc_server
 
-CPP 		= 		@ clang++
+CPP 		= 		clang++
 
 CFLAGS		=		-Wall -Wextra -Werror
 
 OBJS		=		$(patsubst %.cpp, ${OBJS_DIR}/%.o, ${SRCS})
 
-$(OBJS_DIR)/%.o :	./%.cpp
+$(OBJS_DIR)/%.o :	${SRC_DIR}/%.cpp
 			@ mkdir -p $(OBJS_DIR)
-			$(CPP) $(CFLAGS) $(XFLAGS) -c $< -o $@
+			$(CPP) $(CFLAGS) -c $< -o $@
 
 OBJS_DEBUG	=		$(patsubst %.cpp, ${OBJS_DEBUG_DIR}/%.o, ${SRCS})
 
-$(OBJS_DEBUG_DIR)/%.o :	./%.cpp
+$(OBJS_DEBUG_DIR)/%.o :	${SRC_DIR}/%.cpp
 			@ mkdir -p $(OBJS_DEBUG_DIR)
-			$(CPP) $(CFLAGS) $(XFLAGS) -g -c $< -o $@
+			$(CPP) $(CFLAGS) -g -c $< -o $@
 
 #---------------------COMMANDS---------------------#
 
