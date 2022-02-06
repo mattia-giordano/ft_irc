@@ -32,7 +32,7 @@ SRCS		= 		Channel.cpp        CommandHandler.cpp Server.cpp         User.cpp     
 
 NAME		=		irc_server
 
-CPP 		= 		clang++
+CPP 		= 		@clang++
 
 CFLAGS		=		-Wall -Wextra -Werror
 

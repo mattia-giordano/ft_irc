@@ -25,7 +25,7 @@
 # define BACKLOG 10 // number of connections allowed on the incoming queue
 # define UMODES std::string("oiws") // available user _modes
 # define CMODES std::string("obtkmlvsn") // available channel _modes
-# define MOTD_PATH "./.motd.txt"
+# define MOTD_PATH "./src/.motd.txt"
 # define SERV_NAME std::string("myIRCServer")
 
 class Server
